@@ -33,9 +33,8 @@ music.setBuiltInSpeakerEnabled(false)
 basic.showIcon(IconNames.No)
 bluetooth.startAccelerometerService()
 bluetooth.startButtonService()
-bluetooth.startIOPinService()
 bluetooth.startLEDService()
-bluetooth.startMagnetometerService()
+bluetooth.startIOPinService()
 bluetooth.startTemperatureService()
 basic.forever(function () {
     basic.showLeds(`

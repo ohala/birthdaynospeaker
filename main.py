@@ -1,6 +1,13 @@
+def on_bluetooth_connected():
+    basic.show_string("C")
+bluetooth.on_bluetooth_connected(on_bluetooth_connected)
+
+def on_bluetooth_disconnected():
+    basic.show_string("D")
+bluetooth.on_bluetooth_disconnected(on_bluetooth_disconnected)
+
 def on_button_pressed_a():
-    music.start_melody(music.built_in_melody(Melodies.BIRTHDAY),
-        MelodyOptions.FOREVER)
+    basic.show_string("A")
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def on_logo_pressed():
@@ -28,6 +35,12 @@ input.on_button_pressed(Button.B, on_button_pressed_b)
 basic.show_icon(IconNames.HEART)
 music.set_built_in_speaker_enabled(False)
 basic.show_icon(IconNames.NO)
+bluetooth.start_accelerometer_service()
+bluetooth.start_button_service()
+bluetooth.start_io_pin_service()
+bluetooth.start_led_service()
+bluetooth.start_magnetometer_service()
+bluetooth.start_temperature_service()
 
 def on_forever():
     basic.show_leds("""
