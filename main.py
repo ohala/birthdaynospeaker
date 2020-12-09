@@ -15,8 +15,9 @@ def on_logo_pressed():
     basic.show_number(1)
     music.set_built_in_speaker_enabled(True)
     basic.show_icon(IconNames.YES)
-    music.play_melody("C C G G A A G - ", 120)
-    music.play_melody("F F E E D D C - ", 120)
+    for index in range(4):
+        music.play_melody("C C G G A A G - ", 120)
+        music.play_melody("F F E E D D C - ", 120)
 input.on_logo_event(TouchButtonEvent.PRESSED, on_logo_pressed)
 
 def on_button_pressed_b():

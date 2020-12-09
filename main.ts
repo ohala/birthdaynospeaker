@@ -1,5 +1,11 @@
+bluetooth.onBluetoothConnected(function () {
+    basic.showString("C")
+})
+bluetooth.onBluetoothDisconnected(function () {
+    basic.showString("D")
+})
 input.onButtonPressed(Button.A, function () {
-    music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.Forever)
+    basic.showString("A")
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showNumber(5)
@@ -25,6 +31,12 @@ input.onButtonPressed(Button.B, function () {
 basic.showIcon(IconNames.Heart)
 music.setBuiltInSpeakerEnabled(false)
 basic.showIcon(IconNames.No)
+bluetooth.startAccelerometerService()
+bluetooth.startButtonService()
+bluetooth.startIOPinService()
+bluetooth.startLEDService()
+bluetooth.startMagnetometerService()
+bluetooth.startTemperatureService()
 basic.forever(function () {
     basic.showLeds(`
         . . # . .
