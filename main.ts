@@ -6,6 +6,7 @@ bluetooth.onBluetoothDisconnected(function () {
 })
 input.onButtonPressed(Button.A, function () {
     basic.showString("A")
+    something = 1
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showNumber(5)
@@ -27,7 +28,9 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
 input.onButtonPressed(Button.B, function () {
     music.setBuiltInSpeakerEnabled(true)
     basic.showIcon(IconNames.Yes)
+    something = 0
 })
+let something = 0
 basic.showIcon(IconNames.Heart)
 music.setBuiltInSpeakerEnabled(false)
 basic.showIcon(IconNames.No)
@@ -37,18 +40,22 @@ bluetooth.startLEDService()
 bluetooth.startIOPinService()
 bluetooth.startTemperatureService()
 basic.forever(function () {
-    basic.showLeds(`
-        . . # . .
-        # . . . #
-        . . # . .
-        # . # . #
-        # # # # #
-        `)
-    basic.showLeds(`
-        # . . . #
-        . . # . .
-        . . # . .
-        # . # . #
-        # # # # #
-        `)
+    if (something == 1) {
+        basic.showString("Come here 4 joy!")
+    } else {
+        basic.showLeds(`
+            . . # . .
+            # . . . #
+            . . # . .
+            # . # . #
+            # # # # #
+            `)
+        basic.showLeds(`
+            # . . . #
+            . . # . .
+            . . # . .
+            # . # . #
+            # # # # #
+            `)
+    }
 })
